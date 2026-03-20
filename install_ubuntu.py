@@ -114,9 +114,7 @@ def download_ubuntu():
     DOWNLOAD_DIR.mkdir(exist_ok=True)
     
     # Ubuntu Server for Raspberry Pi ARM64
-    # Note: Ubuntu uses major version (24.04) in path, not point release (24.04.1)
-    major_version = UBUNTU_VERSION.rsplit('.', 1)[0]
-    ubuntu_url = f"https://cdimage.ubuntu.com/ubuntu-server/raspberry-pi/releases/{major_version}/release/ubuntu-{UBUNTU_VERSION}-preinstalled-server-arm64+raspi.img.xz"
+    ubuntu_url = f"https://cdimage.ubuntu.com/ubuntu/releases/{UBUNTU_VERSION}/release/ubuntu-{UBUNTU_VERSION}-preinstalled-server-arm64+raspi.img.xz"
     ubuntu_xz = DOWNLOAD_DIR / f"ubuntu-{UBUNTU_VERSION}-server-arm64.img.xz"
     ubuntu_img = DOWNLOAD_DIR / f"ubuntu-{UBUNTU_VERSION}-server-arm64.img"
     
