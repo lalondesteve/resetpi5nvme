@@ -1,0 +1,19 @@
+# Secrets and temporary files
+.env
+*.env
+secrets/
+temp/
+*.log
+*.img
+*.iso
+downloads/
+
+# SSH keys
+id_rsa
+id_rsa.pub
+*.key
+
+# Credentials files
+credentials*
+*_credentials*
+secrets.*
