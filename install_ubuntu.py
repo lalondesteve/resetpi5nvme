@@ -16,7 +16,7 @@ from urllib.error import URLError
 
 # Configuration
 NVME_DEVICE = "/dev/nvme0n1"
-UBUNTU_VERSION = "24.04.1"
+UBUNTU_VERSION = "24.04.4"
 UBUNTU_ARCH = "arm64"
 DOWNLOAD_DIR = Path("./downloads")
 TEMP_DIR = Path("./temp")
@@ -114,7 +114,9 @@ def download_ubuntu():
     DOWNLOAD_DIR.mkdir(exist_ok=True)
     
     # Ubuntu Server for Raspberry Pi ARM64
-    ubuntu_url = f"https://cdimage.ubuntu.com/ubuntu-server/raspberry-pi/releases/{UBUNTU_VERSION}/release/ubuntu-{UBUNTU_VERSION}-preinstalled-server-arm64+raspi.img.xz"
+    # Note: Ubuntu uses major version (24.04) in path, not point release (24.04.1)
+    major_version = UBUNTU_VERSION.rsplit('.', 1)[0]
+    ubuntu_url = f"https://cdimage.ubuntu.com/ubuntu-server/raspberry-pi/releases/{major_version}/release/ubuntu-{UBUNTU_VERSION}-preinstalled-server-arm64+raspi.img.xz"
     ubuntu_xz = DOWNLOAD_DIR / f"ubuntu-{UBUNTU_VERSION}-server-arm64.img.xz"
     ubuntu_img = DOWNLOAD_DIR / f"ubuntu-{UBUNTU_VERSION}-server-arm64.img"
     
